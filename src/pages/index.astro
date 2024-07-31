@@ -1,19 +1,68 @@
 ---
-
+import "../styles/menu.css";
+import "../global.css";
 ---
 
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu Example</title>
+    <link rel="stylesheet" href="../styles/menu.css" />
   </head>
   <body>
-    <a href="/">Home</a>
-    <a href="/blog/">Blog</a>
-    <a href="/about/">About</a>
-    <h1>My Astro Site</h1>
+    <div id="content-wrapper">
+      <header>
+        <div class="menu-container">
+          <div class="menu-left">
+            <div class="menu-icon" id="menu-icon">&#9776; Menu</div>
+          </div>
+          <div class="menu-center">
+            <h1 class="logo">Carranza <span class="highlight">DEV</span></h1>
+          </div>
+          <div class="menu-right">
+            <a href="#"><i class="icon-facebook"></i></a>
+            <a href="#"><i class="icon-twitter"></i></a>
+            <a href="#"><i class="icon-instagram"></i></a>
+            <a href="#"><i class="icon-dribbble"></i></a>
+            <a href="#"><i class="icon-search"></i></a>
+          </div>
+        </div>
+        <nav class="mobile-menu" id="mobile-menu">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      <!-- Agrega aquí el contenido principal de tu página -->
+      <main>
+        <p>Contenido principal de la página...</p>
+      </main>
+    </div>
+    <div id="overlay"></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuIcon = document.getElementById("menu-icon");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const overlay = document.getElementById("overlay");
+        const contentWrapper = document.getElementById("content-wrapper");
+
+        menuIcon.addEventListener("click", function () {
+          mobileMenu.classList.toggle("active");
+          overlay.classList.toggle("active");
+          contentWrapper.classList.toggle("overlay-active");
+        });
+
+        overlay.addEventListener("click", function () {
+          mobileMenu.classList.remove("active");
+          overlay.classList.remove("active");
+          contentWrapper.classList.remove("overlay-active");
+        });
+      });
+    </script>
   </body>
 </html>
