@@ -1,9 +1,36 @@
 ---
 import "../styles/menu.css";
 import "../global.css";
+import RecentPosts from './recentPosts.astro';
 ---
 
-<!doctype html>
+<style>
+  main {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+  }
+  .header_section {
+    max-width: calc(100vw - 40px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px;
+    height: 200px;
+  }
+  .header_section p {
+    text-align: center;
+  }
+  .header_section button {
+    width: 600px;
+  }
+</style>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -16,31 +43,51 @@ import "../global.css";
       <header>
         <div class="menu-container">
           <div class="menu-left">
-            <div class="menu-icon" id="menu-icon">&#9776; Menu</div>
+            <div class="menu-icon" id="menu-icon">&#9776;</div>
           </div>
           <div class="menu-center">
             <h1 class="logo">Carranza <span class="highlight">DEV</span></h1>
           </div>
           <div class="menu-right">
-            <a href="#"><i class="icon-facebook"></i></a>
-            <a href="#"><i class="icon-twitter"></i></a>
-            <a href="#"><i class="icon-instagram"></i></a>
-            <a href="#"><i class="icon-dribbble"></i></a>
-            <a href="#"><i class="icon-search"></i></a>
+            <a target="_blank" href="https://www.facebook.com/carranza.code/">
+              <img src="../../public/assets/icons/facebook.svg" alt="" /></a
+            >
+            <a target="_blank" href="https://www.tiktok.com/@carranza.dev"
+              ><img src="../../public/assets/icons/film.svg" alt="" /></a
+            >
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/in/francisco-javier-carranza-esquivel-474836206/"
+              ><img src="../../public/assets/icons/linkedin.svg" alt="" /></a
+            >
+            <a
+              target="_blank"
+              href="https://www.youtube.com/channel/UCBUjTIjWi8GRyDIKKaHtR2w"
+              ><img src="../../public/assets/icons/youtube.svg" alt="" /></a
+            >
           </div>
         </div>
         <nav class="mobile-menu" id="mobile-menu">
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Publicaciones recientes</a></li>
+            <li><a href="#">Todas las publicaciones</a></li>
           </ul>
         </nav>
       </header>
-      <!-- Agrega aquí el contenido principal de tu página -->
       <main>
-        <p>Contenido principal de la página...</p>
+        <section class="header_section">
+          <h1>
+            Descubre y domina el desarrollo web con contenido especializado en
+            frontend, backend y más.
+          </h1>
+          <p>
+            He creado este blog para compartir mi conocimiento y aportar al
+            mundo del desarrollo de software
+          </p>
+          <button type="button">Explorar</button>
+        </section>
+        <RecentPosts />
       </main>
     </div>
     <div id="overlay"></div>

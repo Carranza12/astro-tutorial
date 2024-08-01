@@ -1,0 +1,117 @@
+---
+const posts = [
+  {
+    title: "Conversations with London Mak & Co.",
+    date: "09 Jan 2024",
+    author: "Elena Flynn",
+    description: "We sit down with London Mak, the growing brand and product design studio...",
+    categories: ["Design", "Research", "Interview"],
+    image: "/path/to/image1.jpg",
+  },
+  {
+    title: "A Relentless Pursuit of Perfection in Product Design",
+    date: "05 Jan 2024",
+    author: "Megan White",
+    description: "High-quality products that meet exacting standards...",
+    categories: ["Design", "Research"],
+    image: "/path/to/image2.jpg",
+  },
+  {
+    title: "How to Run a Successful Business With Your Partner",
+    date: "02 Jan 2024",
+    author: "Liam Brown",
+    description: "Exploring the dynamics of business partnerships...",
+    categories: ["Business", "Research"],
+    image: "/path/to/image3.jpg",
+  },
+  {
+    title: "My Final Wishes – Disease Prevention & Treatment",
+    date: "29 Dec 2023",
+    author: "Liam Brown",
+    description: "Understanding the importance of disease prevention...",
+    categories: ["Health", "Research"],
+    image: "/path/to/image4.jpg",
+  },
+];
+---
+
+<section class="recent-posts">
+  <h2>Recent Blog Posts</h2>
+  <div class="posts-container">
+    {posts.map((post, index) => (
+      <article class="post">
+        <img src={post.image} alt={post.title} class="post-image" />
+        <div class="post-content">
+          <h3 class="post-title">{post.title}</h3>
+          <p class="post-date">{post.date}</p>
+          <p class="post-author">By {post.author}</p>
+          <p class="post-description">{post.description}</p>
+          <div class="post-categories">
+            {post.categories.map((category, idx) => (
+              <span class="category">{category}</span>
+            ))}
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .recent-posts {
+    padding: 1rem;
+    max-width: calc(100vw - 40px);
+  }
+  .posts-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+  }
+  .post {
+    display: flex;
+    gap: 1rem;
+  }
+  .post-image {
+    width: 100%;
+    height: auto;
+  }
+  .post-content {
+    display: flex;
+    flex-direction: column;
+  }
+  .post-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .post-date, .post-author {
+    color: #555;
+  }
+  .post-categories {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .category {
+    background-color: #eee;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+  }
+
+  /* Media Queries for Responsive Design */
+  @media (max-width: 768px) {
+    .posts-container {
+      grid-template-columns: 1fr;
+    }
+    .post {
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .post-title {
+      font-size: 1.2rem;
+    }
+    .post-description {
+      font-size: 0.9rem;
+    }
+  }
+</style>
