@@ -2,6 +2,7 @@
 import "../styles/menu.css";
 import "../global.css";
 import RecentPosts from './recentPosts.astro';
+import Toolbar from "./components/toolbar.astro"
 ---
 
 <style>
@@ -49,37 +50,10 @@ import RecentPosts from './recentPosts.astro';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carranza DEV</title>
-    <link rel="stylesheet" href="/styles/menu.css" />
   </head>
   <body>
     <div id="content-wrapper">
-      <header>
-        <div class="menu-container">
-          <div class="menu-left">
-            <div class="menu-icon" id="menu-icon">&#9776;</div>
-          </div>
-          <div class="menu-center">
-            <h1 class="logo">Carranza <span class="highlight">DEV</span></h1>
-          </div>
-          <div class="menu-right">
-            <a target="_blank" href="https://www.facebook.com/carranza.code/">
-              <img src="/assets/icons/facebook.svg" alt="Facebook" /></a>
-            <a target="_blank" href="https://www.tiktok.com/@carranza.dev">
-              <img src="/assets/icons/film.svg" alt="TikTok" /></a>
-            <a target="_blank" href="https://www.linkedin.com/in/francisco-javier-carranza-esquivel-474836206/">
-              <img src="/assets/icons/linkedin.svg" alt="LinkedIn" /></a>
-            <a target="_blank" href="https://www.youtube.com/channel/UCBUjTIjWi8GRyDIKKaHtR2w">
-              <img src="/assets/icons/youtube.svg" alt="YouTube" /></a>
-          </div>
-        </div>
-        <nav class="mobile-menu" id="mobile-menu">
-          <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Publicaciones recientes</a></li>
-            <li><a href="#">Todas las publicaciones</a></li>
-          </ul>
-        </nav>
-      </header>
+      <Toolbar/>
       <main>
         <section class="header_section">
           <h1>
@@ -90,29 +64,10 @@ import RecentPosts from './recentPosts.astro';
           </p>
           <button type="button">Explorar</button>
         </section>
+
         <RecentPosts />
+  
       </main>
     </div>
-    <div id="overlay"></div>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const menuIcon = document.getElementById("menu-icon");
-        const mobileMenu = document.getElementById("mobile-menu");
-        const overlay = document.getElementById("overlay");
-        const contentWrapper = document.getElementById("content-wrapper");
-
-        menuIcon.addEventListener("click", function () {
-          mobileMenu.classList.toggle("active");
-          overlay.classList.toggle("active");
-          contentWrapper.classList.toggle("overlay-active");
-        });
-
-        overlay.addEventListener("click", function () {
-          mobileMenu.classList.remove("active");
-          overlay.classList.remove("active");
-          contentWrapper.classList.remove("overlay-active");
-        });
-      });
-    </script>
   </body>
 </html>

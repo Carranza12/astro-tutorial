@@ -1,0 +1,92 @@
+.blog-post {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.post-image {
+  width: 100%;
+  height: auto;
+}
+.post-title {
+  font-size: 2rem;
+  margin: 20px 0;
+}
+.post-meta {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.author-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.author-details {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.author-details h2 {
+  font-weight: 400;
+  font-size: 18px;
+}
+.post-date {
+  color: #555;
+}
+.post-description {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+  text-align: justify;
+}
+.post-categories {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 20px;
+}
+.category {
+  background-color: #eee;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+.post-footer {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+.post-description-hastages {
+  color: #2f2e8b;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.post-subtitle {
+  font-weight: 600;
+  color: black;
+  font-size: 20px;
+}
+.post-list {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+  text-align: justify;
+  font-family: "Poppins", sans-serif;
+}
+.post-list li {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+pre {
+  background-color: #1e1e1e;
+  color: #dcdcdc;
+  padding: 0px;
+  border-radius: 8px;
+  overflow: auto;
+  margin: 0;
+}
+code {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+}

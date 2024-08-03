@@ -1,0 +1,277 @@
+---
+import "../../global.css";
+import "../../styles/template-blog.css";
+import Toolbar from "../components/toolbar.astro";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Desbloqueando el potencial de los Observables en Angular: La clave para un
+      código más reactivo - Carranza DEV
+    </title>
+  </head>
+  <body>
+    <div id="content-wrapper">
+      <Toolbar />
+      <section class="blog-post">
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQE0Nl_xkxu2Jw/article-cover_image-shrink_720_1280/0/1686627070022?e=1727913600&v=beta&t=6icXOZBgDVMb1FaEeJJA8mS49fDcVMg1XxT1TGIdz1M"
+          alt="Desbloqueando el potencial de los Observables en Angular: La clave para un código más reactivo"
+          class="post-image"
+        />
+        <h1 class="post-title">
+          Desbloqueando el potencial de los Observables en Angular: La clave
+          para un código más reactivo
+        </h1>
+        <div class="post-meta">
+          <img
+            src="https://media.licdn.com/dms/image/D5603AQHFUFta80RB-w/profile-displayphoto-shrink_800_800/0/1718215533790?e=1727913600&v=beta&t=E4j-PIg51PoEO0M4hWWNK313LRR_KSV0F3Pco2fN9g0"
+            alt="Francisco Javier Carranza Esquivel"
+            class="author-image"
+          />
+          <div class="author-details">
+            <h2>Francisco Javier Carranza Esquivel</h2>
+            <p>
+              Desarrollador web TypeScript | Angular | Node.js | Nest.js |
+              Google Cloud
+            </p>
+            <p class="post-date">12 de junio de 2023</p>
+          </div>
+        </div>
+        <div class="post-categories">
+          <span class="category">frontend</span>
+          <span class="category">angular</span>
+        </div>
+
+        <p class="post-description-hastages">
+          #AngularObservables #ProgramaciónReactiva #AngularDevelopment
+        </p>
+        <p class="post-description">
+          En el mundo del desarrollo web, la capacidad de crear aplicaciones
+          altamente interactivas y receptivas es crucial. Angular, uno de los
+          frameworks más populares para la creación de aplicaciones web, ofrece
+          una poderosa herramienta llamada Observables. En este artículo,
+          exploraremos el poder de los Observables en Angular y cómo pueden
+          transformar tu enfoque de desarrollo, brindando una programación más
+          reactiva y eficiente.
+        </p>
+
+        <p class="post-subtitle">¿Qué son los Observables?</p>
+
+        <p class="post-description">
+          Los Observables son una parte integral de la programación reactiva en
+          Angular. En lugar de manejar los eventos de manera imperativa, los
+          Observables ofrecen una forma declarativa de tratar con secuencias de
+          eventos y datos asíncronos. En esencia, los Observables representan
+          una colección de valores que llegan con el tiempo, y pueden ser
+          observados y manipulados de manera eficiente.
+        </p>
+        <p class="post-subtitle">Beneficios de los Observables en Angular:</p>
+        <ol class="post-list">
+          <li>
+            <strong>Manejo sencillo de eventos asíncronos:</strong> Los Observables
+            permiten gestionar eventos asíncronos de manera elegante. Puedes suscribirte
+            a un Observable y recibir notificaciones cada vez que ocurre un evento,
+            lo que facilita el manejo de flujos de datos asíncronos como peticiones
+            HTTP o eventos del usuario.
+          </li>
+          <li>
+            <strong>Composición y transformación de datos:</strong> Los Observables
+            ofrecen una gran cantidad de operadores que permiten transformar y combinar
+            datos de manera eficiente. Estos operadores, como <code>map()</code
+            >, <code>filter()</code> y <code>merge()</code>, te permiten
+            manipular las secuencias de eventos y adaptar los datos a tus
+            necesidades específicas.
+          </li>
+          <li>
+            <strong>Manejo de errores y recuperación:</strong> Los Observables también
+            brindan un manejo robusto de errores. Puedes utilizar operadores como
+            <code>catchError()</code> para capturar y manejar errores de manera centralizada,
+            lo que simplifica enormemente el proceso de depuración y recuperación
+            de fallos en tu aplicación.
+          </li>
+          <li>
+            <strong>Gestión automática de la memoria:</strong> Angular se encarga
+            automáticamente de suscribir y cancelar las suscripciones a los Observables,
+            evitando así posibles fugas de memoria. Esto es especialmente útil cuando
+            se trabaja con flujos de datos que cambian con el tiempo, ya que Angular
+            se asegura de limpiar los recursos correctamente.
+          </li>
+        </ol>
+        <p class="post-description">
+          Aquí tienes un ejemplo básico de cómo usar Observables en Angular:
+        </p>
+        <ul class="post-list">
+          <li><strong>Importa los módulos necesarios:</strong></li>
+        </ul>
+        <p class="post-description">
+          En tu componente, asegúrate de importar los módulos necesarios para
+          trabajar con Observables y realizar solicitudes HTTP. Por ejemplo:
+        </p>
+        <pre>
+          <code>
+            {`
+              import { Component } from '@angular/core';
+              import { HttpClient } from '@angular/common/http';
+              import { Observable } from 'rxjs';
+            `}
+          </code>
+        </pre>
+        <ul class="post-list">
+          <li><strong>Crea un método que obtenga los usuarios:</strong></li>
+        </ul>
+        <p class="post-description">
+          Dentro de tu componente, crea un método que haga una solicitud HTTP a
+          la API para obtener los usuarios. Puedes devolver un Observable que
+          represente la respuesta de la solicitud. Por ejemplo:
+        </p>
+        <pre>
+          <code>
+            {`
+            export class UserListComponent 
+              users$: Observable<any[]>;
+
+              constructor(private http: HttpClient) {
+                this.users$ = this.getUsers();
+              }
+
+              getUsers(): Observable<any[]> {
+                return this.http.get<any[]>('https://api.example.com/users');
+              }
+            }
+            `}
+          </code>
+        </pre>
+        <p class="post-description">
+          En este ejemplo, <strong>users$</strong> es una variable de tipo Observable
+          que almacenará la lista de usuarios. <strong>getUsers()</strong> es el
+          método que realiza la solicitud HTTP utilizando el servicio <strong
+            >HttpClient</strong
+          > de Angular y devuelve un Observable de tipo <strong>any[]</strong> que
+          representa la lista de usuarios.
+        </p>
+        <ul class="post-list">
+          <li><strong>Visualiza los usuarios en tu plantilla: </strong></li>
+        </ul>
+        <p class="post-description">
+          En tu plantilla HTML, puedes utilizar la directiva <strong
+            >async</strong
+          > para suscribirte al Observable y mostrar los usuarios cuando estén disponibles.
+          Por ejemplo:
+        </p>
+        <pre>
+          <code>
+            {`
+          <ul>
+            <li *ngFor="let user of users$ | async">{{ user.name }}</li>
+          </ul>
+            `}
+          </code>
+        </pre>
+
+        <p class="post-description">
+          Aquí, <strong>users$</strong> es el Observable que contiene la lista de
+          usuarios. La directiva <strong>async</strong> se encarga de suscribirse
+          al Observable y mostrar automáticamente los datos en la plantilla cuando
+          están disponibles.
+        </p>
+
+        <p class="post-description">
+          En resumen, este ejemplo muestra cómo utilizar Observables en Angular
+          para obtener una lista de usuarios de una API y mostrarlos en tu
+          aplicación. Puedes ampliar este ejemplo utilizando operadores como
+          <strong>map, filter y catchError</strong> para transformar y gestionar
+          los datos de forma más avanzada.
+        </p>
+
+        <p class="post-description">
+          Los Observables en Angular ofrecen una forma eficiente y reactiva de
+          manejar eventos asíncronos y flujos de datos en tus aplicaciones.
+        </p>
+
+        <p class="post-description">
+          Al trabajar con <strong>Observables</strong> en Angular, es importante
+          seguir algunas
+          <strong>
+            buenas prácticas para garantizar un código limpio, legible y
+            eficiente.</strong
+          ><span style="margin-top: 10px;">
+            Aquí tienes algunas recomendaciones:</span
+          >
+        </p>
+
+        <ol class="post-list" style="margin-left: 20px;">
+          <li>
+            <strong> Utiliza tipado fuerte: </strong>Es recomendable especificar
+            el tipo de datos emitidos por el Observable utilizando tipos
+            fuertemente tipados. Esto ayuda a detectar errores en tiempo de
+            compilación y facilita el mantenimiento del código.
+          </li>
+          <li>
+            <strong> Evita la creación innecesaria de Observables: </strong>En
+            lugar de crear nuevos Observables para cada operación, intenta
+            encadenar operadores en un solo Observable utilizando tuberías
+            (pipes). Esto mejora el rendimiento y la legibilidad del código.
+          </li>
+          <li>
+            <strong> Utiliza el operador "pipe": </strong>El operador <strong
+              >pipe</strong
+            > permite encadenar múltiples operadores para transformar, filtrar o
+            combinar los datos emitidos por el Observable. Utiliza este operador
+            para mantener tu código más ordenado y modular.
+          </li>
+          <li>
+            <strong> Desuscribe adecuadamente: </strong>Si te suscribes a un
+            Observable, asegúrate de desuscribirte cuando ya no necesites
+            recibir más datos. Esto evita posibles fugas de memoria y asegura
+            que los recursos se liberen correctamente. Puedes utilizar el
+            operador <strong>takeUntil</strong> o <strong>unsubscribe</strong> para
+            desuscribirte.
+          </li>
+          <li>
+            <strong> Evita el uso de "any": </strong>En la medida de lo posible,
+            evita utilizar el tipo <strong>any</strong> para los datos emitidos por
+            los Observables. Es mejor utilizar tipos específicos y manejar los datos
+            de manera más segura y clara.
+          </li>
+          <li>
+            <strong> Utiliza operadores de error: </strong>Los Observables
+            proporcionan operadores como <strong>catchError</strong> y <strong
+              >retry</strong
+            > para manejar errores de manera más robusta. Utiliza estos operadores
+            para capturar y gestionar errores de manera adecuada en tus flujos de
+            datos.
+          </li>
+          <li>
+            <strong> Separación de responsabilidades: </strong>Separa las
+            operaciones de los Observables en diferentes funciones o servicios.
+            Esto ayuda a mantener un código más modular y reutilizable,
+            facilitando las pruebas y la comprensión del flujo de datos.
+          </li>
+          <li>
+            <strong> Documenta tus Observables: </strong>Añade comentarios o
+            documentación que explique la finalidad y el comportamiento de los
+            Observables que estás utilizando. Esto ayuda a otros desarrolladores
+            (incluido tú mismo en el futuro) a entender el propósito de los
+            Observables y cómo interactúan con otras partes de tu código.
+          </li>
+        </ol>
+        <p class="post-description">
+          Siguiendo estas <strong>buenas prácticas</strong>, puedes asegurarte
+          de tener un código más limpio, mantenible y eficiente al trabajar con <strong
+            >Observables</strong
+          > en Angular.
+        </p>
+
+        <p class="post-description">
+          Recuerda que las buenas prácticas pueden variar según el contexto y
+          los requisitos específicos de tu proyecto, así que siempre adapta
+          estas recomendaciones según tus necesidades.
+        </p>
+      </section>
+    </div>
+  </body>
+</html>
