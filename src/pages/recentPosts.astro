@@ -1,22 +1,18 @@
 ---
 const posts = [
   {
-    title:
-      "Desbloqueando el potencial de los Observables en Angular: La clave para un código más reactivo",
+    title: "Desbloqueando el potencial de los Observables en Angular: La clave para un código más reactivo",
     date: "12 de junio de 2023",
     author: "Francisco Javier Carranza Esquivel",
-    description:
-      "En el mundo del desarrollo web, la capacidad de crear aplicaciones altamente interactivas y receptivas es crucial. Angular, uno de los frameworks más populares para la creación de aplicaciones web.",
+    description: "En el mundo del desarrollo web, la capacidad de crear aplicaciones altamente interactivas y receptivas es crucial. Angular, uno de los frameworks más populares para la creación de aplicaciones web.",
     categories: ["frontend", "angular"],
-    image:
-      "https://media.licdn.com/dms/image/D5612AQE0Nl_xkxu2Jw/article-cover_image-shrink_720_1280/0/1686627070022?e=1727913600&v=beta&t=6icXOZBgDVMb1FaEeJJA8mS49fDcVMg1XxT1TGIdz1M",
+    image: "https://media.licdn.com/dms/image/D5612AQE0Nl_xkxu2Jw/article-cover_image-shrink_720_1280/0/1686627070022?e=1727913600&v=beta&t=6icXOZBgDVMb1FaEeJJA8mS49fDcVMg1XxT1TGIdz1M",
   },
   {
     title: "Git y sus comandos esenciales para un trabajo en equipo eficiente",
     date: "14 de junio de 2023",
     author: "Francisco Javier Carranza Esquivel",
-    description:
-      "El desarrollo de software en equipo requiere una gestión efectiva de versiones y colaboración sin problemas. Aquí es donde entra en juego Git, un sistema de control de versiones distribuido ampliamente utilizado.",
+    description: "El desarrollo de software en equipo requiere una gestión efectiva de versiones y colaboración sin problemas. Aquí es donde entra en juego Git, un sistema de control de versiones distribuido ampliamente utilizado.",
     categories: ["full-stack", "desarrollo en equipo"],
     image: "https://media.licdn.com/dms/image/v2/D4D12AQH6rIn-JC2aeQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1686778950157?e=1727913600&v=beta&t=ogLQJ7uzgQcxEIKrN0Bvh89XBvioOcSo1ZPIEcTQW_0",
   },
@@ -33,7 +29,7 @@ const posts = [
     date: "8 de junio de 2023",
     author: "Francisco Javier Carranza Esquivel",
     description: "¡Hola! soy Francisco Carranza, y en esta ocasión te traigo un pequeño tutorial donde te explico como consumir la API de Spotify, a un nivel principiante. El objetivo de este tutorial es que aprendas a generar tokens utilizando la herramienta de Postman y que además aprendas a usar el modulo HttpClient que ofrece angular para realizar peticiones, en el tutorial he creado un pequeño clone de la pagina principal de la app móvil de Spotify",
-    categories: ["angular","frontend", "api", "tutorial"],
+    categories: ["angular", "frontend", "api", "tutorial"],
     image: "https://media.licdn.com/dms/image/D5612AQEtSwRYxxClsw/article-cover_image-shrink_720_1280/0/1686246118553?e=1727913600&v=beta&t=13Fnnn59InF-tE7FESnrG70NF9lnsyoyY21gcvMq_0g",
   },
   {
@@ -48,28 +44,27 @@ const posts = [
 ---
 
 <section class="recent-posts">
-  <h2 class="h2_post">Publicaciones recientes</h2>
+  <h2 class="h2-post">Publicaciones recientes</h2>
   <div class="posts-container">
-    {
-      posts.map((post, index) => (
-        <article class="post">
-          <img src={post.image} alt={post.title} class="post-image" />
-          <div class="post-content">
-            <h3 class="post-title">{post.title}</h3>
-            <p class="post-date">{post.date}</p>
-            <p class="post-author">By {post.author}</p>
-            <p class="post-description">{post.description}</p>
-            <div class="post-categories">
-              {post.categories.map((category, idx) => (
-                <span class="category">{category}</span>
-              ))}
-            </div>
+    {posts.map((post) => (
+      <article class="post">
+        <img src={post.image} alt={post.title} class="post-image" />
+        <div class="post-content">
+          <h3 class="post-title">{post.title}</h3>
+          <p class="post-date">{post.date}</p>
+          <p class="post-author">Por {post.author}</p>
+          <p class="post-description">{post.description}</p>
+          <div class="post-categories">
+            {post.categories.map((category) => (
+              <span class="category" >{category}</span>
+            ))}
           </div>
-        </article>
-      ))
-    }
+        </div>
+      </article>
+    ))}
   </div>
 </section>
+
 <style>
   .recent-posts {
     padding: 1rem;
@@ -78,77 +73,72 @@ const posts = [
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 5px;
     gap: 20px;
   }
   .post {
     display: flex;
-    width: 650px;
-    justify-content: flex-start;
-    align-items: flex-start;
-    height: auto;
-    gap: 10px;
+    flex-direction: column;
+    width: calc(50% - 10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
   }
   .post-image {
-    width: 380px;
+    width: 100%;
     height: 200px;
     object-fit: cover;
   }
   .post-content {
+    padding: 1rem;
     display: flex;
     flex-direction: column;
+    gap: 10px;
   }
   .post-title {
     font-size: 1.5rem;
     font-weight: bold;
+    margin: 0;
   }
   .post-date,
   .post-author {
     color: #555;
+    margin: 0;
+  }
+  .post-description {
+    margin: 0;
   }
   .post-categories {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
   }
   .category {
     background-color: #eee;
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
+    font-size: 0.875rem;
+  }
+  .h2-post {
+    margin-bottom: 20px!important;
   }
 
-  /* Media Queries for Responsive Design */
   @media (max-width: 768px) {
-    .posts-container {
-      grid-template-columns: 1fr;
-    }
     .post {
-      flex-direction: column;
-      
+      width: 100%;
     }
   }
-  
-  @media(max-width: 759px){
-    .post {
-    width: 500px;
-  }
-  }
-  @media(max-width: 586px){
-    .post {
-    width: 400px;
-  }
-  .h2_post{
-      text-align: center;
+  @media (max-width: 576px) {
+    .post-content {
+      padding: 0.5rem;
     }
-    .post {
-    width: 340px;
-    margin: 0 auto; 
-  }
-  }
-  @media(max-width: 533px){
-   
-  .posts-container{
-      justify-content: center;
-      margin: 0;
+    .post-title {
+      font-size: 1.25rem;
     }
+    .post-image {
+      height: 150px;
+    }
+  }
+  .h2-post {
+    text-align: center;
   }
 </style>

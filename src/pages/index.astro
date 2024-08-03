@@ -6,16 +6,13 @@ import RecentPosts from './recentPosts.astro';
 
 <style>
   main {
-    width: calc(100vw - 40px);
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    align-content: center;
     flex-direction: column;
-    @media(max-width:1401px){
-      width: 500px;
-      margin: 0 auto;
-    }
   }
   .header_section {
     display: flex;
@@ -27,31 +24,31 @@ import RecentPosts from './recentPosts.astro';
     height: 400px;
     padding-bottom: 40px;
   }
- 
   .header_section p {
     text-align: center;
   }
   .header_section button {
-    width: 500px;
+    width: 200px;
   }
-  h1, p{
+  h1, p {
     max-width: 600px;
     text-align: center;
   }
-
-  @media(max-width: 602px){
-    .header_section, button{
-      margin: 30px;
-      width: 400px!important;
+  @media (max-width: 768px) {
+    .header_section, .header_section button {
+      width: 90%;
+    }
+    .header_section {
+      margin: 10px;
     }
   }
 </style>
 
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Menu Example</title>
+    <title>Carranza DEV</title>
     <link rel="stylesheet" href="../styles/menu.css" />
   </head>
   <body>
@@ -66,21 +63,13 @@ import RecentPosts from './recentPosts.astro';
           </div>
           <div class="menu-right">
             <a target="_blank" href="https://www.facebook.com/carranza.code/">
-              <img src="../../public/assets/icons/facebook.svg" alt="" /></a
-            >
-            <a target="_blank" href="https://www.tiktok.com/@carranza.dev"
-              ><img src="../../public/assets/icons/film.svg" alt="" /></a
-            >
-            <a
-              target="_blank"
-              href="https://www.linkedin.com/in/francisco-javier-carranza-esquivel-474836206/"
-              ><img src="../../public/assets/icons/linkedin.svg" alt="" /></a
-            >
-            <a
-              target="_blank"
-              href="https://www.youtube.com/channel/UCBUjTIjWi8GRyDIKKaHtR2w"
-              ><img src="../../public/assets/icons/youtube.svg" alt="" /></a
-            >
+              <img src="../../public/assets/icons/facebook.svg" alt="Facebook" /></a>
+            <a target="_blank" href="https://www.tiktok.com/@carranza.dev">
+              <img src="../../public/assets/icons/film.svg" alt="TikTok" /></a>
+            <a target="_blank" href="https://www.linkedin.com/in/francisco-javier-carranza-esquivel-474836206/">
+              <img src="../../public/assets/icons/linkedin.svg" alt="LinkedIn" /></a>
+            <a target="_blank" href="https://www.youtube.com/channel/UCBUjTIjWi8GRyDIKKaHtR2w">
+              <img src="../../public/assets/icons/youtube.svg" alt="YouTube" /></a>
           </div>
         </div>
         <nav class="mobile-menu" id="mobile-menu">
@@ -94,12 +83,10 @@ import RecentPosts from './recentPosts.astro';
       <main>
         <section class="header_section">
           <h1>
-            Descubre y domina el desarrollo web con contenido especializado en
-            frontend, backend y más.
+            Descubre y domina el desarrollo web con contenido especializado en frontend, backend y más.
           </h1>
           <p>
-            He creado este blog para compartir mi conocimiento y aportar al
-            mundo del desarrollo de software
+            He creado este blog para compartir mi conocimiento y aportar al mundo del desarrollo de software
           </p>
           <button type="button">Explorar</button>
         </section>
