@@ -1,0 +1,418 @@
+---
+import "../../global.css";
+import "../../styles/template-blog.css";
+import Toolbar from "../components/toolbar.astro";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Consumiendo la API de spotify en angular (standalone components) -
+      Carranza DEV
+    </title>
+  </head>
+  <body>
+    <div id="content-wrapper">
+      <Toolbar />
+      <section class="blog-post">
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQEtSwRYxxClsw/article-cover_image-shrink_720_1280/0/1686246118553?e=1728518400&v=beta&t=XMk6lvgzoiWsIKUUAyXTJgoamvYxz35oqw5TvElcaXY"
+          alt="Consumiendo la API de spotify en angular (standalone components)"
+          class="post-image"
+        />
+        <h1 class="post-title">
+          Consumiendo la API de spotify en angular (standalone components)
+        </h1>
+        <div class="post-meta">
+          <img
+            src="https://media.licdn.com/dms/image/D5603AQHFUFta80RB-w/profile-displayphoto-shrink_800_800/0/1718215533790?e=1727913600&v=beta&t=E4j-PIg51PoEO0M4hWWNK313LRR_KSV0F3Pco2fN9g0"
+            alt="Francisco Javier Carranza Esquivel"
+            class="author-image"
+          />
+          <div class="author-details">
+            <h2>Francisco Javier Carranza Esquivel</h2>
+            <p>
+              Desarrollador web TypeScript | Angular | Node.js | Nest.js |
+              Google Cloud
+            </p>
+            <p class="post-date">8 de junio de 2023</p>
+          </div>
+        </div>
+        <div class="post-categories">
+          <span class="category">frontend</span>
+          <span class="category">angular</span>
+          <span class="category">api</span>
+          <span class="category">tutorial</span>
+        </div>
+
+        <p class="post-description">
+          ¡Hola! soy Francisco Carranza, y en esta ocasión te traigo un pequeño
+          tutorial donde te explico como consumir la API de Spotify, a un nivel
+          principiante. El objetivo de este tutorial es que aprendas a generar
+          tokens utilizando la herramienta de Postman y que además aprendas a
+          usar el modulo HttpClient que ofrece angular para realizar peticiones,
+          en el tutorial he creado un pequeño clone de la pagina principal de la
+          app móvil de Spotify, el proyecto lo puedes encontrar en GitHub, por
+          si gustas clonarlo y tu mismo ir probando el tutorial paso por paso,
+          como nota aclaratoria por fines rápidos, no mostrare como hice el
+          maquetado y en algunos puntos no estuve tipando todo (por rapidez)
+          pero la idea es entender como funciona la api para traer los datos a
+          nuestra app ( angular y ionic)
+        </p>
+
+        <p class="post-subtitle">Comencemos!</p>
+
+        <p class="post-description">
+          Lo primero que hay que tomar en cuenta es que debes de tener una
+          cuenta de Spotify, en mi caso es la uso personal, así que dirígete a
+          la siguiente web e inicia sesión: <a
+            href="https://developer.spotify.com/"
+            target="_blank">https://developer.spotify.com/</a
+          >
+        </p>
+
+        <p class="post-description">
+          Una vez que ya hayas iniciado sesión, aparecerá tu nombre en la
+          esquina superior derecha, da clic a tu nombre y da clic en dashboard
+        </p>
+
+        <img
+          class="post-image"
+          src="https://media.licdn.com/dms/image/D5612AQGNfgz-GIJkPA/article-inline_image-shrink_1500_2232/0/1686246570343?e=1728518400&v=beta&t=kVoSQ6qDYg01Qatvu051minxSostK_YOs0YBjA0Mp4g"
+          alt=""
+        />
+        <p class="post-description">
+          Para nosotros poder conectar nuestra aplicación, es necesario crear
+          una app, en mi caso ya tengo una creada, pero para ti que vas a
+          practicar, da clic en crear app:
+        </p>
+
+        <img
+          class="post-image"
+          src="https://media.licdn.com/dms/image/D5612AQEjWS9vg2ov4A/article-inline_image-shrink_1500_2232/0/1686247669660?e=1728518400&v=beta&t=aqpDJxSujOm7Pf90bDJfRXWd2sKeuOpvZn7BK8zxyJU"
+          alt=""
+        />
+
+        <p class="post-description">
+          Cuando le das clic en Create app, te aparecerá el siguiente
+          formulario, solo es cuestión de que lo llenes y aceptes los términos y
+          condiciones de Spotify
+        </p>
+
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQFzowbkaLjgnw/article-inline_image-shrink_1000_1488/0/1686247735693?e=1728518400&v=beta&t=ZxCcmLDRTQmjAmRAKDJrWfMUBKjejjwIYqJ3wRuhmG8"
+          alt=""
+          class="post-image"
+        />
+
+        <p class="post-description">
+          Una vez que tengas tu app creada, ingresa en ella dando clic en el
+          nombre y te aparecerá la siguiente pantalla:
+        </p>
+
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQGZiMSo6TQd9w/article-inline_image-shrink_1500_2232/0/1686248092020?e=1728518400&v=beta&t=p62c3NnpsLVkCDvtg55n44tY2X2ln0MADj0CHTD-LsE"
+          alt=""
+          class="post-image"
+        />
+
+        <p class="post-description">Ahora debemos dar clic en settiings</p>
+
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQF1ft5G9Wq_7Q/article-inline_image-shrink_1500_2232/0/1686248123141?e=1728518400&v=beta&t=sNT7oDZ4p7G3lgKNWnJozuWWlm1b1rW4R6Xy6kFD-AA"
+          alt=""
+          class="post-image"
+        />
+
+        <p class="post-description">
+          Lo importante aquí es el <strong>client id</strong> y el <strong
+            >client secret</strong
+          >, ya que los vamos a necesitar por que las vamos a usar como
+          credenciales para poder generar el token que nos va a permitir
+          conectarlos a los datos de Spotify
+        </p>
+
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQEmo25mJPChcQ/article-inline_image-shrink_1500_2232/0/1686248185546?e=1728518400&v=beta&t=b5MOXUu88dchfehzL1ypm_tVTLM_Ig8NPaljUWYjn5Y"
+          alt=""
+          class="post-image"
+        />
+
+        <p class="post-description">
+          Te recomiendo que guardes estos 2 datos en un bloc de notas
+        </p>
+        <img
+          class="post-image"
+          src="https://media.licdn.com/dms/image/D5612AQHFK71Mt20JjQ/article-inline_image-shrink_1500_2232/0/1686248219843?e=1728518400&v=beta&t=AxvC6xTji103Yi1FVL8PFCFSOHep2yyv-QyXj0--pco"
+          alt=""
+        />
+
+        <p class="post-description">
+          ahora vámonos hasta el footer de la página y vamos a dar clic en <strong
+            >WEB API</strong
+          >, aqui es donde estará la documentación
+        </p>
+
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQFp7GxmgrBCaQ/article-inline_image-shrink_1500_2232/0/1686248298611?e=1728518400&v=beta&t=smbwiVDE3U67FAY1dbtA1vUjj-DJwHI6O5PQKu74qmY"
+          alt=""
+          class="post-image"
+        />
+
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQEk58vpEK0aqg/article-inline_image-shrink_1500_2232/0/1686248314468?e=1728518400&v=beta&t=DXSqEtLEJKlx_CD8x1kb9y9GF6QqmZ2uDfBYp9WQYxc"
+          alt=""
+          class="post-image"
+        />
+
+        <p class="post-description">
+          en la sección de REFERENCES puedes ver todos los datos que puedes
+          consumir:
+        </p>
+        <img
+          width="200px"
+          src="https://media.licdn.com/dms/image/D5612AQE0kIBq9htZBg/article-inline_image-shrink_1500_2232/0/1686250284593?e=1728518400&v=beta&t=JbfHTQqoItJ9UfoS-kkLaGAAozjdif80u6_gYta5iks"
+          alt=""
+        />
+
+        <p class="post-description">
+          Además que el sitio web te da ejemplos de los <strong
+            >endpoints</strong
+          > para que pruebes y también te dice con que estructura te va a llegar
+          la información
+        </p>
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQGDTkf7tKLsZg/article-inline_image-shrink_1500_2232/0/1686250320963?e=1728518400&v=beta&t=1Hmh8JXONeqIYSY5Cp8L4Mx1pUAzvZEp0pl0ZEVt4_4"
+          alt=""
+          class="post-image"
+        />
+
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQGm9U7FosKGJg/article-inline_image-shrink_1500_2232/0/1686250340657?e=1728518400&v=beta&t=QkiXT6LiFbHLzWhpKy_eoYSiQLyhjOCHjX0HOggJ814"
+          alt=""
+          class="post-image"
+        />
+
+        <p class="post-subtitle">GENERANDO EL TOKEN DESDE POSTMAN</p>
+
+        <p class="post-description">
+          Muy bien, ahora usaremos la herramienta de postman, que nos permite
+          realizar diferentes peticiones a apis, la usaremos para generar el
+          token que nos va a permitir consumir los datos de la api.
+        </p>
+
+        <p class="post-description">
+          Creamos una nueva petición tipo <strong>POST</strong> y en la sección de
+          body le vamos a enviar los siguientes parámetros:
+        </p>
+
+        <ol class="post-list">
+          <li>
+            <strong>grant_type:</strong> aquí pondremos: "client_credentials"
+          </li>
+          <li>
+            <strong>client_id:</strong> aquí ponemos el client_id que tienes en tu
+            bloc de notas
+          </li>
+          <li>
+            <strong>client_secret:</strong> aquí ponemos el client_secret que tienes
+            en tu bloc de notas
+          </li>
+        </ol>
+
+        <p class="post-description">
+          En la url ponemos: <strong
+            >"https://accounts.spotify.com/api/token"</strong
+          > y finalmente damos clic en send para realizar la petición, si todo salió
+          correcto en la parte inferior tendremos como resultado un objeto donde
+          buscaremos la propiedad <strong>acces_token</strong>, este es el token
+          que usaremos en nuestra app de <strong>angular</strong>, hay que tomar
+          en cuenta que solo dura 1 hora.
+        </p>
+
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQGVcjRPzaaj_g/article-inline_image-shrink_1500_2232/0/1686253713315?e=1728518400&v=beta&t=97Kmju2mu_u0VVo9C1_LgnDCT7xLPgn4iTU7TPMV-Gc"
+          alt=""
+          class="post-image"
+        />
+
+        <p class="post-subtitle">CONSUMIENDO DATOS DESDE POSTMAN</p>
+
+        <p class="post-description">
+          Ahora, vamos a crear la siguiente petición para probar que nuestro
+          token sirve:
+        </p>
+
+        <ul class="post-list">
+          <li>
+            <strong>url:</strong> https://api.spotify.com/v1/artists/[tu id]/albums
+          </li>
+          <li>
+            <strong>headers:</strong>Authorization: Bearer
+            BQBlZlrlcegVN_ZaeVjfjrBGq1BvYgXG1e6ye1iSrci9KkTV7E6nkkUXeN8_AtlcNZO-turyYsuj5xYG9OPq8EO1gcQJbfBnQtrGZM4C5Vy1t1RuIUc
+          </li>
+        </ul>
+
+        <p class="post-description">
+          ojo, que te recomiendo que vayas a la documentación y desde ahí
+          cheques los endpoints que te proporciona la misma pagina, ya que
+          agarra el id de tu cuenta y en los headers que enviamos checamos que
+          sea [Bear (token)], la palabra Bear, seguida de un espacio y después
+          ponemos el token que hemos generado.
+        </p>
+
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQFh-jE69etWLg/article-inline_image-shrink_1500_2232/0/1686254091835?e=1728518400&v=beta&t=ousCX4yXEw86thh7YYTgj2pOcJSES0BeA2nQJjk7yvY"
+          alt=""
+          class="post-image"
+        />
+
+        <p class="post-description">
+          Sí todo ha salido bien en el body tendremos como resultado un objeto
+          con toda la información, genial, ¡ya hemos consumido la api de
+          spotify!
+        </p>
+
+        <p class="post-subtitle">CONSUMIENDO LA API DESDE IONIC CON ANGULAR</p>
+
+        <p class="post-description">
+          Omitiré los pasos para crear la aplicación, yo estoy usando la ultima
+          versión de ionic y de angular (v16), además que estoy usando
+          componentes standalone, esta es la estructura de la app ( la puedes
+          clonar del repositorio de github):
+        </p>
+
+        <img
+          width="200px"
+          src="https://media.licdn.com/dms/image/D5612AQHwJ0c0N2RtUg/article-inline_image-shrink_1500_2232/0/1686254480170?e=1728518400&v=beta&t=yZ-0BhCHMq3pm01ykqxBFdHYPIeKMWT8rT970vYCoZk"
+          alt=""
+        />
+
+        <p class="post-description">
+          Es importante aclarar que en el app.component estoy importando el
+          HttpClientModule y ademas el servicio que usaremos (SpotifyService) lo
+          estoy poniendo como proveedor:
+        </p>
+
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQGZHYt2ywwUFA/article-inline_image-shrink_1500_2232/0/1686254663619?e=1728518400&v=beta&t=Eikp0ANaRFbQgEotLn4jPNsSbSTPG85t1EpgRo3B6hc"
+          alt=""
+          class="post-image"
+        />
+
+        <p class="post-description">
+          En el Spotify Service he creado la variable TOKEN, que es donde
+          pondremos el token generado desde postman
+        </p>
+
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQEfDVH_2NGVeQ/article-inline_image-shrink_1500_2232/0/1686254773835?e=1728518400&v=beta&t=HgRnW7qgKpUY7h0DAr7hmOj1LkHkdVQeTvjAdu2jKdw"
+          alt=""
+          class="post-image"
+        />
+
+        <p class="post-description">
+          Ahora analizando la función para ir por los artistas y albums
+        </p>
+
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQFLwUjkzVzJBw/article-inline_image-shrink_1500_2232/0/1686254902495?e=1728518400&v=beta&t=nuPm4vwHAYSMVMcjGuMYVSgf-dMTvvHLFG8yrsJ8_fI"
+          alt=""
+          class="post-image"
+        />
+
+        <p class="post-description">
+          creamos los <strong>headers</strong>, solamente es un objeto con la
+          misma estructura que hemos puesto en postman, después usamos el
+          servicio http ( que previamente hemos inyectado en el constructor) y
+          hacemos la petición
+          <strong>GET</strong>, ya después nos suscribimos y hacemos un par de
+          cosillas para mapear la información a como la necesito para mostrarla
+          en el componente <strong>HOME</strong>.
+        </p>
+
+        <p class="post-description">
+          en el componente donde lo queremos usar, yo me cree la estructura de
+          datos que están viendo, lo que me importa es remplazar la información
+          estática del arreglo de <strong>"songs"</strong>, entonces en el <strong
+            >OnInit</strong
+          > vamos a consumir el servicio y a asignarle el valor nuevo a ese arreglo.
+        </p>
+
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQHtGjGhseulWQ/article-inline_image-shrink_1500_2232/0/1686255526320?e=1728518400&v=beta&t=I1neY_5qxy6oDDBE8LmzDkLnhrGfyzbE_dVUrJzVI3g"
+          alt=""
+          class="post-image"
+        />
+
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQEU8EKvDB5Rnw/article-inline_image-shrink_1500_2232/0/1686255546527?e=1728518400&v=beta&t=N6pOWL3JzS0SGubApBZaV-0oYjYQkGX9WrQKowiG0p0"
+          alt=""
+          class="post-image"
+        />
+        <p class="post-description">
+          como vez, solo le asigno los valores directamente, ahora veamos el
+          html:
+        </p>
+
+        <img
+          src="https://media.licdn.com/dms/image/v2/D5612AQGPDDRTFt2SsA/article-inline_image-shrink_1500_2232/article-inline_image-shrink_1500_2232/0/1686255578518?e=1728518400&v=beta&t=USEIeBi7IcE3d6zEwPQf1AriNPIfh6AL4P0ktvjyeU4"
+          alt=""
+          class="post-image"
+        />
+
+        <p class="post-description">
+          si te preguntas como cargo la información, tengo un componente albums
+          en donde por medio de un input de entrada le paso cada uno de los
+          objetos que esta iterando el <strong>NgFor</strong>:
+        </p>
+
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQF5kfXuQk_DPA/article-inline_image-shrink_1500_2232/0/1686255659800?e=1728518400&v=beta&t=3nIJPLxs9ZIwpElbfbF9loeULGTfaHZ-IgFYU6Y-G3M"
+          alt=""
+          class="post-image"
+        />
+
+        <p class="post-description">
+          ahí puedes ver como se le asignan las variables y pues por ultimo en
+          el html tenemos lo siguiente:
+        </p>
+
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQExM5mGqIbsLQ/article-inline_image-shrink_1500_2232/0/1686255695988?e=1728518400&v=beta&t=YAT90UQFOXQ7e_Q5lkSYeoekHQN-dqbL4brs6rBd7dk"
+          alt=""
+          class="post-image"
+        />
+
+        <p class="post-description">
+          y por ultimo el resultado final es el siguiente:
+        </p>
+
+        <img
+          width="350px"
+          src="https://media.licdn.com/dms/image/D5612AQHHYU4wtpmzbA/article-inline_image-shrink_1500_2232/0/1686255714961?e=1728518400&v=beta&t=IU62CeStC0IbdEbmkQZ-0mAwkmybL_bYQ2fcZ3FtF-0"
+          alt=""
+        />
+
+        <p class="post-subtitle">CONCLUSIONES</p>
+
+        <p class="post-description">
+          En resumen, saber cómo consumir <strong>APIs</strong> te permite acceder a servicios
+          externos, ampliar las funcionalidades de tu aplicación, reutilizar
+          recursos existentes y simplificar el mantenimiento a largo plazo. Esto
+          te convierte en un desarrollador web más versátil y te ayuda a ofrecer
+          una experiencia más completa y rica a tus usuarios.
+        </p>
+
+        <p class="post-description">
+            Nos vemos en un próximo articulo.
+        </p>
+        <p class="post-description">
+            link del repositorio: <a href="https://github.com/Carranza12/SpotifyClone" target="_blank">https://github.com/Carranza12/SpotifyClone</a>
+        </p>
+      </section>
+    </div>
+  </body>
+</html>

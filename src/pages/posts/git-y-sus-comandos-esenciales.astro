@@ -1,0 +1,202 @@
+---
+import "../../global.css";
+import "../../styles/template-blog.css";
+import Toolbar from "../components/toolbar.astro";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Git y sus comandos esenciales para un trabajo en equipo eficiente -
+      Carranza DEV
+    </title>
+  </head>
+  <body>
+    <div id="content-wrapper">
+      <Toolbar />
+      <section class="blog-post">
+        <img
+          src="https://media.licdn.com/dms/image/v2/D4D12AQH6rIn-JC2aeQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1686778950157?e=1727913600&v=beta&t=ogLQJ7uzgQcxEIKrN0Bvh89XBvioOcSo1ZPIEcTQW_0"
+          alt="Git y sus comandos esenciales para un trabajo en equipo eficiente"
+          class="post-image"
+        />
+        <h1 class="post-title">
+          Git y sus comandos esenciales para un trabajo en equipo eficiente
+        </h1>
+        <div class="post-meta">
+          <img
+            src="https://media.licdn.com/dms/image/D5603AQHFUFta80RB-w/profile-displayphoto-shrink_800_800/0/1718215533790?e=1727913600&v=beta&t=E4j-PIg51PoEO0M4hWWNK313LRR_KSV0F3Pco2fN9g0"
+            alt="Francisco Javier Carranza Esquivel"
+            class="author-image"
+          />
+          <div class="author-details">
+            <h2>Francisco Javier Carranza Esquivel</h2>
+            <p>
+              Desarrollador web TypeScript | Angular | Node.js | Nest.js |
+              Google Cloud
+            </p>
+            <p class="post-date">14 de junio de 2023</p>
+          </div>
+        </div>
+        <div class="post-categories">
+          <span class="category">full-stack</span>
+          <span class="category">desarrollo en equipo</span>
+        </div>
+
+        <p class="post-description">
+          El desarrollo de software en equipo requiere una gestión efectiva de
+          versiones y colaboración sin problemas. Aquí es donde entra en juego
+          <strong>Git</strong>, un sistema de control de versiones distribuido
+          ampliamente utilizado. En este artículo, exploraremos los comandos <strong
+            >esenciales</strong
+          > de Git y también examinaremos diferentes estrategias de <strong
+            >versionado</strong
+          > que pueden mejorar la <strong>productividad</strong> y la <strong
+            >colaboración</strong
+          > en equipo.
+        </p>
+
+        <p class="post-subtitle">1. ¿Qué es Git y por qué es importante?</p>
+
+        <p class="post-description">
+          Git es un sistema de control de versiones distribuido que permite a
+          los equipos de desarrollo rastrear cambios en archivos y coordinar el
+          trabajo colaborativo. Su popularidad radica en su capacidad para
+          proporcionar un historial completo de cambios, facilitar la
+          colaboración sin problemas y permitir la creación de ramas para el
+          desarrollo paralelo.
+        </p>
+
+        <p class="post-subtitle">2. Configuración inicial de Git</p>
+
+        <p class="post-description">
+          Antes de profundizar en los comandos de Git, es importante configurar
+          correctamente tu entorno. Esto incluye establecer tu nombre y
+          dirección de correo electrónico, lo que te permitirá identificar los
+          cambios realizados por cada miembro del equipo. Puedes configurar
+          estos valores utilizando los siguientes comandos:
+        </p>
+
+        <pre>
+            <code>
+              {`
+                $ git config --global user.name "Tu Nombre" 
+                $ git config --global user.email "tu@email.com" 
+              `}
+            </code>
+        </pre>
+        <p class="post-subtitle">3. Comandos esenciales de Git</p>
+        <p class="post-description">
+          Aquí tienes una lista de los comandos esenciales de Git que te
+          ayudarán a trabajar eficientemente en equipo:
+        </p>
+
+        <ol class="post-list" style="margin-left: 20px;">
+          <li>
+            <strong> git init: </strong>Inicializa un nuevo repositorio Git en
+            el directorio actual.
+          </li>
+          <li>
+            <strong> git clone URL: </strong>Clona un repositorio existente
+            desde una URL remota.
+          </li>
+          <li>
+            <strong> git add 'archivo': </strong>Añade un archivo al área de
+            preparación para ser registrado.
+          </li>
+          <li>
+            <strong> git commit -m "Mensaje" : </strong>Registra los cambios
+            realizados en el área de preparación con un mensaje descriptivo.
+          </li>
+          <li>
+            <strong> git push: </strong> Envía los cambios locales al repositorio
+            remoto.
+          </li>
+          <li>
+            <strong> git pull: </strong>Obtiene los cambios más recientes desde
+            el repositorio remoto.
+          </li>
+          <li>
+            <strong> git branch: </strong> Lista todas las ramas disponibles en el
+            repositorio.
+          </li>
+          <li>
+            <strong> git checkout -rama-: </strong>Cambia a la rama
+            especificada.
+          </li>
+          <li>
+            <strong> git merge -rama-: </strong>Fusiona los cambios de una rama
+            con la rama actual.
+          </li>
+          <li>
+            <strong> git log: </strong>Muestra el historial de confirmaciones.
+          </li>
+        </ol>
+
+        <p class="post-subtitle">4. Estrategias de versionado</p>
+        <p class="post-description">
+          Existen varias estrategias de versionado que puedes implementar en tu
+          flujo de trabajo para optimizar la colaboración en equipo:
+        </p>
+
+        <ol class="post-list" style="margin-left: 20px;">
+          <li>
+            <strong> GitFlow: </strong>Esta estrategia utiliza ramas separadas
+            para las características, las versiones de producción y las
+            correcciones de errores. Facilita la colaboración y la entrega
+            continua al dividir el trabajo en ramas especializadas.
+          </li>
+          <li>
+            <strong> Trunk-based Development: </strong>En este enfoque, todos
+            los miembros del equipo trabajan en una sola rama principal (trunk).
+            Las características se desarrollan en pequeñas ramas y se fusionan
+            rápidamente con el tronco principal. Es ideal para equipos que
+            requieren una entrega rápida y continua.
+          </li>
+          <li>
+            <strong> Feature Branching: </strong>Aquí, cada nueva característica
+            se desarrolla en una rama separada. Una vez completada, se fusiona
+            con la rama principal. Esto permite a los desarrolladores trabajar
+            de manera independiente en nuevas funcionalidades sin afectar el
+            flujo principal del proyecto.
+          </li>
+        </ol>
+        <p class="post-subtitle">Ejemplo:</p>
+        <p class="post-description">
+          Aquí se muestra un ejemplo de cómo inicializar un repositorio Git,
+          realizar cambios y enviarlos al repositorio remoto:
+        </p>
+
+        <pre>
+            <code>
+              {`
+                $ git init
+                Initialized empty Git repository in /path/to/repository 
+                $ git add archivo.txt 
+                $ git commit -m "Agregando archivo.txt al repositorio" 
+                [master (root-commit)]: Añadiendo archivo.txt al repositorio 
+                $ git remote add origin <URL_del_repositorio_remoto> 
+                $ git push -u origin master
+              `}
+            </code>
+        </pre>
+        <p class="post-description">
+          En este ejemplo, se crea un nuevo repositorio, se agrega un archivo y
+          se envían los cambios al repositorio remoto.
+        </p>
+
+        <p class="post-subtitle">Conclusión</p>
+        <p class="post-description">
+          Git es una herramienta esencial para la colaboración en equipo y la
+          gestión de versiones en proyectos de desarrollo de <strong>software</strong>. Con los
+          comandos esenciales de Git y la comprensión de las diferentes
+          estrategias de versionado, podrás trabajar eficientemente, mantener un
+          historial completo de cambios y colaborar sin problemas con otros
+          miembros del equipo.
+        </p>
+      </section>
+    </div>
+  </body>
+</html>

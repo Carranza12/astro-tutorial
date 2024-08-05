@@ -2,14 +2,14 @@
 import "../../styles/menu.css";
 import "../../global.css"
 ---
-
+<div id="overlay"></div>
 <header>
     <div class="menu-container">
       <div class="menu-left">
-        <div class="menu-icon" id="menu-icon">&#9776;</div>
+      <!--   <div class="menu-icon" id="menu-icon">&#9776;</div>  -->
       </div>
       <div class="menu-center">
-        <h1 class="logo">Carranza <span class="highlight">DEV</span></h1>
+        <h1 style="cursor: pointer;" onclick="window.open('/','_self')" class="logo">Carranza <span class="highlight">DEV</span></h1>
       </div>
       <div class="menu-right">
         <a target="_blank" href="https://www.facebook.com/carranza.code/">
@@ -26,18 +26,19 @@ import "../../global.css"
       <ul>
         <li><a href="#">Inicio</a></li>
         <li><a href="#">Publicaciones recientes</a></li>
-        <li><a href="#">Todas las publicaciones</a></li>
+        <li><a id="close">cerrar</a></li>
       </ul>
     </nav>
   </header>
 
-  <div id="overlay"></div>
+
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const menuIcon = document.getElementById("menu-icon");
       const mobileMenu = document.getElementById("mobile-menu");
       const overlay = document.getElementById("overlay");
+      const close = document.getElementById("close");
       const contentWrapper = document.getElementById("content-wrapper");
 
       menuIcon.addEventListener("click", function () {
@@ -46,8 +47,10 @@ import "../../global.css"
         contentWrapper.classList.toggle("overlay-active");
       });
 
-      overlay.addEventListener("click", function () {
+      close.addEventListener("click", function () {
+        console.log("click")
         mobileMenu.classList.remove("active");
+        mobileMenu.classList.add("d-none")
         overlay.classList.remove("active");
         contentWrapper.classList.remove("overlay-active");
       });

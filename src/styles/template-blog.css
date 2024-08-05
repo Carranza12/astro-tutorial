@@ -37,7 +37,7 @@
 .post-description {
   margin-top: 10px !important;
   margin-bottom: 10px !important;
-  text-align: justify;
+  line-height: 1.5;
 }
 .post-categories {
   display: flex;
@@ -63,6 +63,8 @@
   margin-bottom: 20px;
 }
 .post-subtitle {
+  margin-top: 20px!important;
+  margin-bottom: 20px!important;
   font-weight: 600;
   color: black;
   font-size: 20px;
@@ -70,8 +72,9 @@
 .post-list {
   margin-top: 10px !important;
   margin-bottom: 10px !important;
-  text-align: justify;
+  line-height: 1.5;
   font-family: "Poppins", sans-serif;
+  margin-left: 15px;
 }
 .post-list li {
   margin-top: 10px;

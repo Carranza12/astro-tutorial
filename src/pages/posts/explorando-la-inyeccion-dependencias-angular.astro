@@ -1,0 +1,253 @@
+---
+import "../../global.css";
+import "../../styles/template-blog.css";
+import Toolbar from "../components/toolbar.astro";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Explorando la inyección de dependencias en Angular y su poderoso impacto
+      en el desarrollo de aplicaciones - Carranza DEV
+    </title>
+  </head>
+  <body>
+    <div id="content-wrapper">
+      <Toolbar />
+      <section class="blog-post">
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQGepsMedziC-A/article-cover_image-shrink_720_1280/0/1686327245098?e=1728518400&v=beta&t=WbU0XVvz5tDvSjxhPs1f8lLBnMQG1A-5XVsg4GnF4yA"
+          alt="Explorando la inyección de dependencias en Angular y su poderoso impacto en el desarrollo de aplicaciones"
+          class="post-image"
+        />
+        <h1 class="post-title">
+          Explorando la inyección de dependencias en Angular y su poderoso
+          impacto en el desarrollo de aplicaciones
+        </h1>
+        <div class="post-meta">
+          <img
+            src="https://media.licdn.com/dms/image/D5603AQHFUFta80RB-w/profile-displayphoto-shrink_800_800/0/1718215533790?e=1727913600&v=beta&t=E4j-PIg51PoEO0M4hWWNK313LRR_KSV0F3Pco2fN9g0"
+            alt="Francisco Javier Carranza Esquivel"
+            class="author-image"
+          />
+          <div class="author-details">
+            <h2>Francisco Javier Carranza Esquivel</h2>
+            <p>
+              Desarrollador web TypeScript | Angular | Node.js | Nest.js |
+              Google Cloud
+            </p>
+            <p class="post-date">9 de junio de 2023</p>
+          </div>
+        </div>
+        <div class="post-categories">
+          <span class="category">frontend</span>
+          <span class="category">angular</span>
+        </div>
+
+        <p class="post-description">
+          ¡Hola! soy Francisco Carranza y soy desarrollador Full Stack, el día
+          de hoy te hablaremos sobre un patrón de diseño muy conocido en
+          angular, la <strong>inyección de dependencias</strong>...
+        </p>
+
+        <p class="post-description">
+          Los Observables son una parte integral de la programación reactiva en
+          Angular. En lugar de manejar los eventos de manera imperativa, los
+          Observables ofrecen una forma declarativa de tratar con secuencias de
+          eventos y datos asíncronos. En esencia, los Observables representan
+          una colección de valores que llegan con el tiempo, y pueden ser
+          observados y manipulados de manera eficiente.
+        </p>
+
+        <p class="post-description">
+          La inyección de dependencias es un patrón de diseño que se utiliza en
+          angular ( así como en otros frameworks) que nos va a permitir
+          proporcionarnos las dependencias de un componente de manera externa en
+          lugar de que el componente las cree internamente, en pocas palabras,
+          la inyección de dependencias nos permite tener un <strong
+            >mayor control y modularidad</strong
+          > en nuestras aplicaciones.
+        </p>
+
+        <p class="post-description">
+          Todo esto se logra usando el mismo mecanismo de inyección que nos
+          proporciona Angular, en realidad el proceso para nosotros los
+          desarrolladores es muy sencillo, angular se encarga de proporcionar
+          las instancias necesarias cuando el componente lo necesite.
+        </p>
+
+        <p class="post-subtitle">¿Para que nos sirve?</p>
+
+        <ol class="post-list">
+          <li>
+            <strong>Promueve la reutilización de código:</strong>Al estar
+            inyectando dependencias externas en lugar crearlas internamente en
+            cada componente, hace que podamos reutilizar esas mismas
+            dependencias en varios lugares de nuestra aplicación.
+          </li>
+          <li>
+            <strong>Facilita las pruebas unitarias:</strong>En el caso de que
+            necesitemos realizar pruebas unitarias al inyectar dependencias,
+            podemos reemplazar de una manera muy fácil las dependencias reales
+            con <strong>mocks o stubs</strong> durante las pruebas unitarias, esto
+            nos permite aislar el componente bajo la prueba y probarlo de manera
+            mas efectiva.
+          </li>
+          <li>
+            <strong>Mejora la modularidad:</strong>Al separar la responsabilidad
+            y permitir que los componentes dependan de abstracciones en lugar de
+            implementaciones concretas, nosotros podemos crear una arquitectura
+            mas modular y escalable.
+          </li>
+        </ol>
+
+        <p class="post-subtitle">VAMOS AL CÓDIGO!</p>
+
+        <p class="post-description">
+          Vamos a ver un ejemplo sencillo en el que usemos la inyección de
+          dependencias:
+        </p>
+
+        <p class="post-description">
+          Vamos a suponer que estamos desarrollando una aplicacion de
+          entrenamientos deportivos y vamos a tener un servicio llamado
+          <strong>dataService</strong> que se va a encargar de manejar la lógica
+          relacionada con los entrenamientos de nuestra aplicación. Queremos utilizar
+          este servicio en un componente llamado <strong>HomePage</strong> para mostrar
+          una lista de entrenamientos en pantalla:
+        </p>
+
+        <p class="post-description">
+          Creación del servicio, aquí definimos una función que devuelve los
+          entrenamientos:
+        </p>
+        <img
+          class="post-image"
+          src="https://media.licdn.com/dms/image/D5612AQFDXsjpr8aQiA/article-inline_image-shrink_1500_2232/0/1686326497599?e=1728518400&v=beta&t=uUzsahM3hPtdGFq5tkcBW6mG9JBY7oo_e6mxphpXbfc"
+          alt=""
+        />
+
+        <p class="post-description">Uso del servicio en el componente:</p>
+        <img
+          class="post-image"
+          src="https://media.licdn.com/dms/image/D5612AQG2J_7bmThD5w/article-inline_image-shrink_1500_2232/0/1686326737299?e=1728518400&v=beta&t=P0klDR3f1S_PYuP08TLNGX6mb1Q_K7oYW7nWAVI3vCE"
+          alt=""
+        />
+        <p class="post-description">
+          Aquí hemos importado el servicio <strong>DataService</strong>, hemos inyectado el
+          servicio en el constructor del componente usando la sintaxis <strong>private
+            _data: DataService</strong>, lo que permite que Angular proporcione una
+          instancia del servicio al componente. Finalmente, en el método
+          <strong>ngOnInit</strong>, utilizamos el servicio para obtener la lista de
+          entrenamientos y asignarla a la propiedad <strong>entrenamientos</strong> del
+          componente.
+        </p>
+
+        <p class="post-description"></p>
+        <p class="post-subtitle">¿Para que nos sirve?</p>
+
+        <p class="post-description">
+          Con la inyección de dependencias, Angular se encargará de crear una
+          instancia de <strong>DataService</strong> y proporcionarla al componente <strong>HomePage</strong>
+          cuando sea necesario.
+        </p>
+
+        <p class="post-subtitle">¿COMO FUNCIONA ESTO POR DETRÁS?</p>
+
+        <p class="post-description">
+          Detrás de escena, <strong>Angular</strong> utiliza su propio sistema de inyección de
+          dependencias para gestionar y proporcionar las dependencias a los
+          componentes y otros servicios en la aplicación. Aquí te explico cómo
+          funciona:
+        </p>
+
+        <p class="post-subtitle">Proveedores:</p>
+
+        <p class="post-description">
+          Angular utiliza la información proporcionada en el metadato <strong>providers</strong>
+          de los componentes, módulos o el decorador <strong>@Injectable()</strong> en los
+          servicios para registrar las dependencias.
+        </p>
+
+        <p class="post-description">
+          Los proveedores son responsables de crear y mantener las instancias de
+          las dependencias.
+        </p>
+
+        <p class="post-subtitle">Árbol de inyección:</p>
+
+        <p class="post-description">
+          Angular construye un árbol de inyección que representa la jerarquía de
+          componentes y servicios en la aplicación.
+        </p>
+
+        <p class="post-description">
+          Cada componente y módulo tiene su propio ámbito de inyección, y las
+          dependencias se resuelven dentro de ese ámbito.
+        </p>
+
+        <p class="post-subtitle">Resolución de dependencias:</p>
+
+        <p class="post-description">
+          Cuando un componente o servicio necesita una dependencia, Angular
+          busca en su ámbito de inyección y luego se mueve hacia arriba en el
+          árbol de inyección hasta encontrar un proveedor registrado para esa
+          dependencia.
+        </p>
+
+        <p class="post-description">
+          Si no se encuentra un proveedor en el ámbito actual, Angular continúa
+          la búsqueda en el ámbito superior hasta alcanzar el módulo raíz.
+        </p>
+
+        <p class="post-subtitle">Ciclo de vida:</p>
+
+        <p class="post-description">
+          Cuando se encuentra un proveedor para una dependencia, Angular crea
+          una instancia de la dependencia utilizando el constructor apropiado.
+        </p>
+
+        <p class="post-description">
+          Si la dependencia tiene sus propias dependencias, Angular las resuelve
+          recursivamente.
+        </p>
+
+        <p class="post-description">
+          Las instancias de las dependencias se mantienen en <strong>caché</strong> y se
+          comparten dentro del ámbito correspondiente. Esto permite que
+          diferentes componentes o servicios accedan a la <strong>misma instancia</strong> de una
+          dependencia.
+        </p>
+
+        <p class="post-subtitle">Inyección de dependencias opcionales:</p>
+
+        <p class="post-description">
+          En algunos casos, una dependencia puede ser <strong>opcional</strong>. Angular maneja
+          esto utilizando el mecanismo de <strong>inyección opcional</strong>.
+        </p>
+
+        <p class="post-description">
+          Si una dependencia opcional no se encuentra en el árbol de inyección,
+          Angular proporcionará un valor nulo o un valor predeterminado en lugar
+          de lanzar un error.
+        </p>
+
+        <p class="post-subtitle">Conclusiones</p>
+
+        <p class="post-description">
+          En resumen, el sistema de inyección de dependencias de Angular
+          funciona registrando <strong>proveedores</strong> para las dependencias y resolviendo
+          las dependencias en tiempo de ejecución a medida que se necesitan.
+          Esto permite la <strong>modularidad</strong>, la <strong>reutilización</strong> de código y facilita las
+          pruebas unitarias al separar las responsabilidades y proporcionar una
+          forma eficiente de <strong>gestionar</strong> las <strong>dependencias</strong> en una aplicación
+          Angular.
+        </p>
+
+        <p class="post-description">¡Nos vemos en un próximo articulo!</p>
+      </section>
+    </div>
+  </body>
+</html>
