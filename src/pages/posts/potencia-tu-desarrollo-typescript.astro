@@ -1,0 +1,279 @@
+---
+import "../../global.css";
+import "../../styles/template-blog.css";
+import Toolbar from "../components/toolbar.astro";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Potencia tu desarrollo en Typescript con los Utility Types - Carranza DEV
+    </title>
+  </head>
+  <body>
+    <div id="content-wrapper">
+      <Toolbar />
+      <section class="blog-post">
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQEr8WpyiSSsZA/article-cover_image-shrink_720_1280/0/1685988125178?e=1727913600&v=beta&t=z9hboymTEr7gdRS2a-S-o9KnhNNu7gPIslSLpUakzM0"
+          alt="Potencia tu desarrollo en Typescript con los Utility Types"
+          class="post-image"
+        />
+        <h1 class="post-title">
+          Potencia tu desarrollo en Typescript con los Utility Types
+        </h1>
+        <div class="post-meta">
+          <img
+            src="https://media.licdn.com/dms/image/D5603AQHFUFta80RB-w/profile-displayphoto-shrink_800_800/0/1718215533790?e=1727913600&v=beta&t=E4j-PIg51PoEO0M4hWWNK313LRR_KSV0F3Pco2fN9g0"
+            alt="Francisco Javier Carranza Esquivel"
+            class="author-image"
+          />
+          <div class="author-details">
+            <h2>Francisco Javier Carranza Esquivel</h2>
+            <p>
+              Desarrollador web TypeScript | Angular | Node.js | Nest.js |
+              Google Cloud
+            </p>
+            <p class="post-date">7 de junio de 2023</p>
+          </div>
+        </div>
+        <div class="post-categories">
+          <span class="category">código seguro</span>
+          <span class="category">typescript</span>
+        </div>
+
+        <p class="post-description">
+          Hola soy Francisco Carranza, desarrollador Full Stack y en esta
+          ocasión te traigo una breve explicación de que son los <strong
+            >utility types</strong
+          >
+          en <strong>typescript</strong>, para que sirven y como puedes usarlos
+          para hacer que tu codigo sea mucho mas seguro y no este propenso a
+          errores o a malas practicas que se pueden generar a la hora de <strong
+            >tipar</strong
+          > objetos o de trabajar con <strong>interfaces</strong>.
+        </p>
+
+        <p class="post-description">
+          Como sabemos, <strong>typescript</strong> es un <strong
+            >super set</strong
+          > de javascript, con la abismal diferencia que nos permite tipar nuestros
+          datos, es decir si yo tengo una variable, puedo decirle que estrictamente
+          quiero que sea un string, y el mismo lenguaje de programacion no dejará
+          que yo le pase por ejemplo un number a esa variable, cosa que no podemos
+          hacer con javascript.
+        </p>
+
+        <p class="post-description">
+          Para muchos desarrolladores (incluyéndome) se nos es difícil el poder
+          tipar interfaces muy largas o incluso complejas y cometemos malas
+          practicas como poner (any), o empezar a hacer interfaces con muchas
+          campos opcionales con el signo de (?), pero esto solo hace que nuestro
+          código no este bien protegido y asegurado con el contrato que se
+          establece al momento que hacemos una interfaz.
+        </p>
+
+        <p class="post-description">
+          por eso las <strong>utility types</strong> nos van a salvar la vida, básicamente
+          son una serie de utilidades que permiten hacer transformaciones a los datos:
+        </p>
+
+        <p class="post-subtitle">Partial Type</p>
+
+        <p class="post-description">
+          Comencemos con el <strong>partial</strong>, este va a crear una nueva
+          transformación de nuestro type pero va a poner a todos los atributos
+          como opcionales, es decir, si tenemos la siguiente interfaz, creará la
+          interfaz pero con los todos sus atributos de manera opcional
+        </p>
+
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQFOcpUQKB7DCg/article-inline_image-shrink_1500_2232/0/1685994039150?e=1728518400&v=beta&t=jQrZQ48FFu5miBP-Jv1CTq3h5HgX50ispvbKKIPO_0k"
+          alt=""
+          class="post-image"
+        />
+
+        <p class="post-description">
+          para crear el nuevo tipo usamos la siguiente sintaxis:
+        </p>
+
+        <img
+          class="post-image"
+          src="https://media.licdn.com/dms/image/D5612AQGZBVjqc8V8wQ/article-inline_image-shrink_1500_2232/0/1685994060165?e=1728518400&v=beta&t=2z7eyA4Z3bNC_sac_VedLSW8zNnF3iQBS44J1_SfvEA"
+          alt=""
+        />
+
+        <p class="post-description">
+          y el resultado es la misma interfaz, pero con los atributos
+          opcionales:
+        </p>
+
+        <img
+          class="post-image"
+          src="https://media.licdn.com/dms/image/D5612AQF77FAEIYmeiQ/article-inline_image-shrink_1500_2232/0/1685994085272?e=1728518400&v=beta&t=tTvIY2qrbKmRcH-dGLXKXyaiNM8bEWCLRKm9-_Q3cyA"
+          alt=""
+        />
+        <p class="post-subtitle">Required type</p>
+
+        <p class="post-description">
+          si queremos todo lo contrario al <strong>partial</strong>, es decir,
+          que todas las propiedades sean requeridas, usamos <strong
+            >required</strong
+          >
+        </p>
+
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQH59Y0EPPQ1rg/article-inline_image-shrink_1500_2232/0/1685996500368?e=1728518400&v=beta&t=qzLs5w3vhASVjXSkupkLogIKJ82i9LdOjRBXgUb-U0A"
+          alt=""
+          class="post-image"
+        />
+
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQFTrHkgDPxfOA/article-inline_image-shrink_1500_2232/0/1685996549131?e=1728518400&v=beta&t=7Ze6KgAc1NoyoKSdLFZZ88Of5b-pswUG8aX18GmvTw4"
+          alt=""
+          class="post-image"
+        />
+
+        <p class="post-subtitle">Readonly Type</p>
+
+        <p class="post-description">
+          Este nos va a crear una nueva transformación donde todas las
+          propiedades van a ser de solo lectura, es decir, no van a poder ser
+          modificables o reasginadas.
+        </p>
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQFfFjMc2CyVHg/article-inline_image-shrink_1500_2232/0/1685996800551?e=1728518400&v=beta&t=OQDYRtsEOBSAgXTCHqlIqM0rs3Qh1K3kIhK663_C9BY"
+          alt=""
+          class="post-image"
+        />
+        <p class="post-description">
+          y como puedes ver, nos da un error cuando queremos modificar el
+          objeto.
+        </p>
+
+        <p class="post-subtitle">Record Key,Type</p>
+
+        <p class="post-description">
+          este tipo construye un objeto usando "keys" y cuyos valores son
+          Type,es decir, esta utilidad puede ser utilizada por ejemplo cuando
+          necesitemos mapear propiedades de un tipo a otro.
+        </p>
+
+        <p class="post-subtitle">Pick Type, Keys</p>
+
+        <p class="post-description">
+          Construye un nuevo tipo pero aqui debemos de especificarle las
+          propiedades que traerá este nuevo tipo que estamos creando:
+        </p>
+
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQF_spFAIWZt4g/article-inline_image-shrink_1500_2232/0/1686149866027?e=1728518400&v=beta&t=e07rWjkmkXhE93jod-zQsYbNQI55hduZinVG61UMQOU"
+          alt=""
+          class="post-image"
+        />
+
+        <p class="post-subtitle">Omit Type, Keys</p>
+
+        <p class="post-description">
+          Lo mismo que el caso de pick, solo que a la inversa, aquí debemos
+          especificar los atributos o propiedades que queramos quitar del tipo:
+        </p>
+        <img
+          src="https://media.licdn.com/dms/image/D5612AQFaj4kP5Azs8g/article-inline_image-shrink_1500_2232/0/1686149971554?e=1728518400&v=beta&t=UIVCgRlsE_7MPm3EtsszmMonwbHz8PZdTVI-AQscTfo"
+          alt=""
+          class="post-image"
+        />
+
+        <p class="post-subtitle">Exclude Type,UnionDeExcluidos</p>
+
+        <p class="post-description">
+          Construye un tipo excluyendo de Type el resultado de la unión.
+        </p>
+
+        <p class="post-subtitle">Extract Type,Union</p>
+
+        <p class="post-description">
+          Construye un tipo extrayendo de Type basado en el resultado de la
+          unión.
+        </p>
+
+        <p class="post-subtitle">NonNullable</p>
+
+        <p class="post-description">
+          Construye un tipo excluyendo null y undefined de el tipo.
+        </p>
+
+        <p class="post-subtitle">Parameters Type</p>
+
+        <p class="post-description">
+          Este tipo construye una tupla de tipos a partir de los tipos
+          utilizados en los parámetros de una función de tipo Type.
+        </p>
+
+        <p class="post-subtitle">ConstructorParameters Type</p>
+
+        <p class="post-description">
+          Construye una tupla o arreglo de tipos a partir de los tipos provistos
+          a la función del constructor.
+        </p>
+
+        <p class="post-subtitle">
+          Intrinsic Manypulation Types (Manipuladores Intrínsecos)
+        </p>
+
+        <p class="post-subtitle">Uppercase</p>
+
+        <p class="post-description">
+          Este permite convertir un string en mayúsculas.
+        </p>
+
+        <p class="post-subtitle">Lowercase</p>
+
+        <p class="post-description">
+          permite transformar un string a minusculas
+        </p>
+
+        <p class="post-subtitle">Capitalize</p>
+
+        <p class="post-description">
+          transforma el string para que la primera letra este en mayúscula
+        </p>
+
+        <p class="post-subtitle">Uncapitalize</p>
+
+        <p class="post-description">
+          Transforma un tipo string para que la primera letra este en minúscula.
+        </p>
+
+        <p class="post-subtitle">Conclusiones</p>
+
+        <p class="post-description">
+          Los utility types en TypeScript son herramientas poderosas que
+          permiten manipular y transformar tipos de datos de manera flexible. Al
+          utilizarlos, podemos ahorrar tiempo y evitar la repetición de código
+          al definir y manipular tipos en nuestros programas. Los utility types
+          nos permiten realizar operaciones comunes, como agregar o quitar
+          modificadores de tipo, combinar tipos existentes, obtener subconjuntos
+          de tipos y mucho más.
+        </p>
+
+        <p class="post-description">
+          Además, los utility types son flexibles y extensibles, lo que nos
+          permite crear nuestros propios tipos de utilidad personalizados para
+          adaptarse a las necesidades específicas de nuestro proyecto. Esto nos
+          brinda un alto grado de control sobre cómo se manipulan y transforman
+          los tipos en nuestro código.
+        </p>
+
+        <p class="post-description">
+          En resumen, utilizar <strong>utility types</strong> en <strong>TypeScript</strong> nos brinda una forma
+          poderosa y eficiente de manipular y transformar tipos de datos, lo que
+          mejora la legibilidad, la mantenibilidad y la seguridad de nuestro
+          código.
+        </p>
+      </section>
+    </div>
+  </body>
+</html>
