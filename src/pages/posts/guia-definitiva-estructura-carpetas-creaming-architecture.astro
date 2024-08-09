@@ -1,0 +1,295 @@
+---
+import "../../global.css";
+import "../../styles/template-blog.css";
+import Toolbar from "../components/toolbar.astro";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      La Guía Definitiva para una Estructura de Carpetas 'Screaming
+      Architecture' - Francisco Carranza DEV
+    </title>
+  </head>
+  <body>
+    <div id="content-wrapper">
+      <Toolbar />
+      <section class="blog-post">
+        <img
+          src="/public/assets/posts_minaturas/miniatura-guia-definitiva-estructura-carpetas-creaming-architecture.jpg"
+          alt="La Guía Definitiva para una Estructura de Carpetas 'Screaming Architecture'"
+          class="post-image"
+        />
+        <h1 class="post-title">
+          La Guía Definitiva para una Estructura de Carpetas 'Screaming
+          Architecture'
+        </h1>
+        <div class="post-meta">
+          <img
+            src="https://media.licdn.com/dms/image/D5603AQHFUFta80RB-w/profile-displayphoto-shrink_800_800/0/1718215533790?e=1727913600&v=beta&t=E4j-PIg51PoEO0M4hWWNK313LRR_KSV0F3Pco2fN9g0"
+            alt="Francisco Javier Carranza Esquivel"
+            class="author-image"
+          />
+          <div class="author-details">
+            <h2>Francisco Javier Carranza Esquivel</h2>
+            <p>
+              Desarrollador web TypeScript | Angular | Node.js | Nest.js |
+              Google Cloud
+            </p>
+            <p class="post-date">10 de agosto de 2024</p>
+          </div>
+        </div>
+        <div class="post-categories">
+          <span class="category">proyectos en equipo</span>
+          <span class="category">desarrollo</span>
+        </div>
+
+        <p class="post-description">
+          Al momento de empezar un nuevo proyecto, nos topamos con la pregunta
+          de siempre: <strong>¿cómo vamos a estructurar las carpetas?</strong> Existen
+          muchos factores a tomar en cuenta, pero hoy haremos un breve análisis de
+          algunas de las formas más utilizadas y cuál es la que recomiendo para casi
+          cualquier <strong>tipo de proyecto</strong>.
+        </p>
+
+        <p class="post-description">
+          Algunos de los factores que debemos tomar en cuenta y que son muy
+          importantes son, por ejemplo, el tipo de <strong>framework</strong> que
+          vamos a usar. Este framework o herramienta puede marcarnos una pauta o
+          lineamientos que debemos seguir, pero no siempre seguir las recomendaciones
+          del framework (hablando de la estructura de un proyecto) es lo mejor. Muchas
+          veces es mejor <strong>delimitar nuestros propios criterios</strong>.
+          No es lo mismo un proyecto de <strong>backend</strong> que un proyecto
+          de <strong>frontend</strong> o incluso uno de <strong
+            >serverless</strong
+          >.
+        </p>
+
+        <p class="post-description">
+          El primer punto es ver qué tan dependiente es la estructura del
+          proyecto que nos <strong>proporciona</strong> el framework. Una vez identificado
+          esto, si es posible, podemos <strong>crear</strong> nuestra propia manera
+          de estructurar los proyectos. La idea es tener todo <strong
+            >separado</strong
+          >, <strong>modularizado</strong> y que sea de
+          <strong>fácil legibilidad</strong> para los demás desarrolladores de tu
+          equipo.
+        </p>
+
+        <p class="post-description">
+          Teniendo en cuenta esto, existen otros dos factores que me gustaría
+          mencionar en este artículo: el <strong>tiempo de entrega</strong> y la
+          <strong>escala</strong> que va a tener el proyecto.
+        </p>
+
+        <p class="post-subtitle">Tiempo de entrega</p>
+
+        <p class="post-description">
+          Con este factor me refiero a que es muy importante tener claro cuánto
+          tiempo tenemos. Muchas veces, y más en empresas emergentes como
+          <strong>startups</strong>, se dispone de muy poco tiempo para realizar
+          diferentes entregas y liberaciones de proyectos, ya que la mayoría de
+          productos digitales aún no se sabe si serán bien recibidos en el
+          mercado. En este tipo de empresas, la <strong>rapidez</strong> es un punto
+          clave, por lo que el tiempo de entrega es <strong>limitado</strong>.
+        </p>
+
+        <p class="post-description">
+          Un error que se puede cometer es querer implementar una estructura de
+          carpetas muy sofisticada, pensando en muchos detalles a futuro, cuando
+          realmente no sabemos si el producto va a ser exitoso en el mercado.
+          Puede que fracase o crezca significativamente; es una <strong
+            >incertidumbre</strong
+          >. Por ello, a veces en estos casos, menos es más. Este punto es
+          crucial a tener en cuenta, ya que también existe el lado opuesto:
+          realizar una estructura de carpetas muy sencilla que nos pueda
+          perjudicar cuando el proyecto esté avanzado y necesitemos <strong
+            >escalarlo</strong
+          >. En ese caso, tendríamos mucha dificultad para hacerlo.
+        </p>
+
+        <p class="post-description">
+          Mi recomendación es encontrar un punto neutral para ambas situaciones:
+          no dedicar demasiado tiempo a definir la <strong>arquitectura</strong
+          >, pero tampoco crear una estructura tan simple que sea difícil de
+          mantener en el futuro, incluso para los mismos <strong
+            >desarrolladores</strong
+          >.
+        </p>
+
+        <p class="post-subtitle">Escala del proyecto</p>
+        <p class="post-description">
+          con este punto me refiero a la importancia de conocer los detalles del
+          proyecto en <strong>profundidad</strong>. No basta solo con saber de
+          qué va a tratar el proyecto; es fundamental entender qué es lo que el <strong
+            >cliente</strong
+          > quiere a largo plazo, cuál es su <strong>presupuesto</strong>, y qué <strong
+            >expectativas</strong
+          > tiene para el futuro del <strong>producto</strong>. Estos aspectos
+          son cruciales para tomar una decisión informada acerca de la <strong
+            >estructura</strong
+          > de carpetas más <strong>adecuada</strong>.
+        </p>
+        <p class="post-description">
+          Si el proyecto tiene un presupuesto <strong>limitado</strong> y el cliente
+          no tiene planes de expandirlo considerablemente, podría ser más eficiente
+          optar por una estructura más <strong>simple</strong> y <strong
+            >directa</strong
+          >. Sin embargo, si se prevé un crecimiento significativo del proyecto,
+          es vital diseñar una estructura que pueda <strong>escalar</strong> y <strong
+            >adaptarse</strong
+          > a las futuras necesidades, evitando la necesidad de <strong
+            >reorganizar</strong
+          > o <strong>refactorizar</strong> el código más adelante.
+        </p>
+        <p class="post-subtitle">Estructura por tipos</p>
+        <p class="post-description">
+          Este primer tipo de estructura es una de las más básicas que puedes
+          encontrar. De hecho, es la más simple y la que la mayoría de los
+          desarrolladores usan, especialmente cuando están empezando. La razón
+          de esto es que, en la mayoría de los cursos de casi todos los
+          frameworks o herramientas de desarrollo, se enseña este tipo de
+          estructura
+        </p>
+        <p class="post-description">
+          Consiste básicamente en crear carpetas en la raíz del proyecto según
+          el <strong>tipo</strong> de elemento que vas a desarrollar. Por ejemplo,
+          en una aplicación Angular, podrías tener diferentes carpetas como <strong
+            >components</strong
+          >,
+          <strong>services</strong>, <strong>pipes</strong>, <strong
+            >pages</strong
+          >, <strong>guards</strong>, <strong>models</strong>, etc. Cada una de
+          estas carpetas agrupa los archivos relacionados según su función o
+          propósito dentro del proyecto.
+        </p>
+        <img
+          width="200px"
+          src="/public/assets/post_guia-definitiva-estructura-carpetas-creaming-architecture/1.jpg"
+          alt=""
+        />
+        <p class="post-description">
+          ¿Qué hay de malo en este tipo de estructura? Imagina que tu aplicación
+          inicialmente solo tiene algunas páginas, quizás 10 componentes y tal
+          vez unos 3 servicios; todo parece genial y no sientes la necesidad de
+          escalar. Pero, ¿qué sucede si en algún momento necesitas escalar?
+          Imagina lo abrumador que sería tener más de 50 archivos en tu carpeta
+          de componentes sin una organización clara; podría convertirse en un
+          caos.
+        </p>
+        <p class="post-description">
+          Aquí analizaremos las ventajas y desventajas de este tipo de
+          estructura de carpetas.
+        </p>
+        <p class="post-description">
+          <strong>Ventajas</strong>
+        </p>
+        <ol class="post-list">
+          <li>Ideal para proyectos chicos o medianos</li>
+          <li>Es simple de implementar</li>
+        </ol>
+
+        <p class="post-description">
+          <strong>Desventajas</strong>
+        </p>
+        <ol class="post-list">
+          <li>Difícil de mantener</li>
+          <li>Difícil de escalar</li>
+          <li>poca legibilidad para nuevos programadores</li>
+        </ol>
+        <p class="post-subtitle">Estructura por tipos y funciones</p>
+        <p class="post-description">
+          Si bien la estructura anterior era ideal para proyectos pequeños,
+          ahora surge una <strong>evolución</strong> de esa misma estructura. En
+          esta nueva versión, seguimos teniendo las mismas carpetas <strong
+            >principales</strong
+          >, pero dentro de ellas añadimos <strong>subcarpetas</strong>,
+          organizadas según el <strong>formulario</strong>,
+          <strong>módulo</strong> o <strong>función</strong> que estés desarrollando.
+          Esto soluciona, en parte, una de las desventajas anteriores: la poca <strong
+            >legibilidad</strong
+          >. Sin embargo, si el proyecto sigue creciendo, esta estructura
+          también podría
+          <strong>complicarse</strong>. Aunque es cierto que es un poco más
+          ordenada, no deja de tener algunas desventajas adicionales.
+        </p>
+        <img
+          width="200px"
+          src="/public/assets/post_guia-definitiva-estructura-carpetas-creaming-architecture/2.jpg"
+          alt=""
+        />
+        <p class="post-description">
+          <strong>Ventajas</strong>
+        </p>
+        <ol class="post-list">
+          <li>Ideal para proyectos medianos</li>
+          <li>Nivel de implementación media de dificultad</li>
+        </ol>
+
+        <p class="post-description">
+          <strong>Desventajas</strong>
+        </p>
+        <ol class="post-list">
+          <li>Difícil de mantener en proyectos grandes</li>
+          <li>poca legibilidad para nuevos programadores</li>
+        </ol>
+        <p class="post-subtitle">screaming architecture</p>
+        <p class="post-description">
+          La <strong>Screaming Architecture</strong> es un enfoque de diseño de software
+          propuesto por Robert C. Martin, también conocido como "Uncle Bob". Su idea
+          principal es que la estructura del proyecto debe <strong
+            >gritar su propósito</strong
+          > desde el primer vistazo. En otras palabras, cuando un desarrollador observa
+          la organización de las carpetas y archivos de un proyecto, debería ser
+          evidente cuál es el dominio o el objetivo principal de la aplicación. En
+          lugar de organizar el proyecto en torno a herramientas, frameworks o patrones
+          de diseño, se organiza en torno a las <strong>funcionalidades</strong>
+          o <strong>características</strong> clave del <strong>negocio</strong>.
+        </p>
+        <p class="post-description">
+          Este enfoque promueve la creación de <strong>módulos</strong> y <strong
+            >capas</strong
+          > que reflejan directamente las necesidades del negocio. Por ejemplo, en
+          lugar de tener carpetas como controllers, services o repositories, tendrías
+          carpetas como <strong>billing</strong>, <strong>userManagement</strong
+          > o <strong>inventory</strong>, que representan áreas funcionales del
+          sistema. Esto ayuda a mantener el código alineado con los objetivos
+          del negocio y facilita la <strong>comunicación</strong>
+          entre <strong>desarrolladores</strong>, <strong>gerentes</strong> y otros
+          <strong>stakeholders</strong>, ya que el propósito de cada parte del
+          código es <strong>claro</strong> y <strong>explícito</strong>.
+        </p>
+        <img
+          width="200px"
+          src="/public/assets/post_guia-definitiva-estructura-carpetas-creaming-architecture/3.jpg"
+          alt=""
+        />
+        <p class="post-description">
+          <strong>Ventajas</strong>
+        </p>
+        <ol class="post-list">
+          <li>Claridad del dominio</li>
+          <li>Mantenimiento simplificado</li>
+          <li>Facilita la escalabilidad</li>
+        </ol>
+
+        <p class="post-description">
+          <strong>Desventajas</strong>
+        </p>
+        <ol class="post-list">
+          <li>Curva de aprendizaje</li>
+          <li>Ambigüedad en proyectos pequeños</li>
+        </ol>
+        <p class="post-subtitle">Conclusiones</p>
+        <p class="post-description">
+          Ahora que ya conoces esta nueva manera de estructurar tus proyectos,
+          no dudes en aplicarla para ir perfeccionando cada vez más tus
+          proyectos o los de tu equipo de trabajo. ¡Nos vemos en un próximo
+          artículo!
+        </p>
+      </section>
+    </div>
+  </body>
+</html>
