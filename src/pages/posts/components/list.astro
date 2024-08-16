@@ -1,0 +1,22 @@
+---
+const { order, list } = Astro.props;
+---
+
+{
+  order === true && (
+    <ol class="post-list">
+      {list.map((listItem) => (
+        <li set:html={listItem.content} />
+      ))}
+    </ol>
+  )
+}
+{
+  order === false && (
+    <ul class="post-list">
+      {list.map((listItem) => (
+        <li set:html={listItem.content} />
+      ))}
+    </ul>
+  )
+}

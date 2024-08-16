@@ -1,0 +1,77 @@
+---
+import posts from "../../repository/posts";
+
+import "../../global.css";
+import "../../styles/template-blog.css";
+import Toolbar from "../components/toolbar.astro";
+import AuthorDetails from "./components/author-details.astro";
+import Categories from "./components/categories.astro";
+import Description from "./components/description.astro";
+import ImageSmall from "./components/imageSmall.astro";
+import Subtitle from "./components/subtitle.astro";
+import List from "./components/list.astro";
+import Code from "./components/code.astro";
+import ImageDefault from "./components/imageDefault.astro";
+
+export function getStaticPaths() {
+  return posts.map((post) => ({
+    params: { post: post.href },
+  }));
+}
+
+const { post } = Astro.params;
+const currentPost = posts.find((p) => p.href === post);
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {currentPost.title} - Carranza DEV
+    </title>
+  </head>
+  <body>
+    <div id="content-wrapper">
+      <Toolbar />
+      <section class="blog-post">
+        <img
+          src={currentPost.image}
+          alt={currentPost.title}
+          class="post-image"
+        />
+        <h1 class="post-title">
+          {currentPost.title}
+        </h1>
+        <Categories categories={currentPost.categories} ></Categories>
+        <AuthorDetails date={currentPost.date} />
+
+        
+        {currentPost.sections.map((section) => (
+          <div>
+              {section.type === 'description' && (
+                  <Description content={section.content} ></Description>
+              )}
+              {section.type === 'image-small' && (
+                  <ImageSmall src={section.src} ></ImageSmall>
+              )}
+              {section.type === 'subtitle' && (
+                  <Subtitle content={section.content} ></Subtitle>
+              )}
+               {section.type === 'list' && (
+                  <List order={section.order} list={section.list} ></List>
+              )}
+              {section.type === 'code' && (
+                  <Code  code={section.code} ></Code>
+              )}
+              {section.type === 'image-default' && (
+                  <ImageDefault  src={section.src} ></ImageDefault>
+              )}
+           
+          </div>
+      ))}
+       
+      </section>
+    </div>
+  </body>
+</html>
