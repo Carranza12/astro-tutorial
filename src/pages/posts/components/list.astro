@@ -1,5 +1,6 @@
 ---
-const { order, list } = Astro.props;
+let { order, list } = Astro.props;
+list = list ? list : []
 ---
 
 {
