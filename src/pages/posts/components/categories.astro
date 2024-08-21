@@ -1,5 +1,6 @@
 ---
-const { categories } = Astro.props;
+let { categories } = Astro.props;
+categories = categories ? categories : []
 ---
 
 <style>
